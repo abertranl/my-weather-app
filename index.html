@@ -11,56 +11,72 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/styles.css" />
-    <title>My weather application</title>
+    <title>My weather app</title>
   </head>
   <body>
-    <div class="weather-app">
-      <header>
+    <header></header>
+
+    <main>
+      <div class="card">
         <form id="search-form">
           <input
             type="search"
-            placeholder="Enter a city.."
+            placeholder="Enter a city..."
             required
             class="search-input"
             id="search-input"
           />
           <input type="submit" value="Search" class="search-button" />
         </form>
-      </header>
-      <main>
-        <div class="current-weather">
-          <div>
-            <h1 class="current-city" id="current-city">Paris</h1>
-            <p class="current-details">
-              <span id="current-date"></span>, moderate rain <br />
-              Humidity: <strong>87%</strong>, Wind: <strong>7.2km/h</strong>
-            </p>
-          </div>
-          <div class="current-temperature">
-            <span class="current-temperature-icon">☀️</span
-            ><span class="current-temperature-value" id="current-temperature"
-              >24</span
-            ><span class="current-temperature-unit">°C</span>
-          </div>
+      </div>
+
+      <div class="card">
+        <div id="current-date">Tuesday 10:44</div>
+        <div class="main-text">
+          Hello👋🏼 there! The temperature in
+          <span id="current-city" class="bold"></span>
+          is currently
+          <span id="current-temperature">
+            <span id="current-temperature-icon" class="current-temperature-icon"
+              >-</span
+            ><span id="current-temperature-value" class="bold">-</span
+            ><span id="current-temperature-unit" class="bold">°C</span
+            ><span id="new-phrase">. Thought you should know.</span>
+          </span>
         </div>
-      </main>
-      <footer>
-        <p>
-          This project was coded by
-          <a href="https://github.com/abertranl" target="_blank"
-            >Andrea Bertran</a
-          >
-          and is
-          <a href="https://github.com/abertranl/my-weather-app" target="_blank">
-            on GitHub</a
-          >
-          and
-          <a href="https://thesunalsorises.netlify.app/" target="_blank"
-            >hosted on Netlify</a
-          >
-        </p>
-      </footer>
-    </div>
+      </div>
+
+      <div class="card current-details">
+        <div>
+          Condition:
+          <span id="current-description" class="bold">-</span>
+        </div>
+        <div>
+          Humidity: <span id="current-humidity" class="bold">-</span
+          ><strong>%</strong>
+        </div>
+        <div>
+          Wind: <span id="current-wind" class="bold">-</span
+          ><strong>km/h</strong>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>
+        This project was coded by
+        <a href="https://github.com/abertranl" target="_blank"
+          >Andrea Bertran</a
+        >
+        and is
+        <a href="https://github.com/abertranl/my-weather-app" target="_blank">
+          on GitHub</a
+        >
+        and
+        <a href="https://thesunalsorises.netlify.app/" target="_blank"
+          >hosted on Netlify</a
+        >
+      </p>
+    </footer>
   </body>
   <script src="src/index.js"></script>
 </html>

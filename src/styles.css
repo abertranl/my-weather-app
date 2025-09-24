@@ -1,98 +1,95 @@
+a {
+  color: #202020;
+}
+
+a:hover {
+  color: #000;
+  cursor: pointer;
+}
+
 body {
-  background: #f9f7fe;
+  background: #eaeaea;
   font-family: "Roboto", sans-serif;
 }
 
-a {
-  color: #885df1;
+.bold {
+  font-weight: 700;
 }
 
-.weather-app {
-  background: white;
-  max-width: 600px;
-  margin: 60px auto;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
+.card {
+  background: #f1f1f1;
+  color: #202020;
+  max-width: 656px;
+  margin: 12px auto;
+  padding: 32px;
+  border: 1px solid #202020;
+  border-radius: 8px;
+  box-shadow: 0 24px 40px rgba(46, 46, 46, 0.08);
 }
 
-header {
-  border-bottom: 1px solid #f9f7fe;
-  padding-bottom: 30px;
-}
-
-.search-input {
-  background-color: #f9f7fe;
-  border: none;
-  color: rgba(39, 33, 66, 0.4);
-  font-size: 16px;
-  padding: 20px;
-  width: 75%;
-  border-radius: 6px;
-}
-
-.search-button {
-  margin-left: 5px;
-  font-size: 16px;
-  background-color: #885df1;
-  color: white;
-  border: none;
-  padding: 20px;
-  line-height: 1;
-  border-radius: 5px;
-}
-
-main {
-  padding: 30px 0;
-}
-
-.current-temperature {
-  font-size: 48px;
-}
-
-.current-weather {
-  display: flex;
-  justify-content: space-between;
-}
-
-.current-city {
-  font-size: 38px;
-  font-weight: 900;
-  margin: 0;
-}
 .current-details {
-  color: rgba(39, 33, 66, 0.4);
+  color: #202020;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-}
-
-.current-details strong {
-  color: #f65282;
+  display: flex;
+  gap: 48px;
+  align-items: center;
 }
 
 .current-temperature-icon {
-  position: relative;
-  top: -8px;
-  font-size: 40px;
-  margin-right: 10px;
-}
-
-.current-temperature-value {
-  font-size: 80px;
-  font-weight: bold;
+  max-height: 56px;
+  max-width: 56px;
+  height: auto;
+  width: auto;
+  display: inline-block;
+  transform: translateY(4px);
 }
 
 .current-temperature-unit {
-  font-size: 28px;
   position: relative;
   top: -38px;
 }
 
 footer {
-  border-top: 1px solid #f9f7fe;
   text-align: center;
-  padding-top: 15px;
+  padding-top: 32px;
+  color: #202020;
+}
 
-  color: rgba(39, 33, 66, 0.4);
+#search-form {
+  display: flex;
+  gap: 8px;
+}
+.search-input {
+  background-color: #fff;
+  border: none;
+  color: rgba(54, 54, 54, 0.4);
+  font-size: 16px;
+  padding: 20px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.search-button {
+  font-size: 16px;
+  background-color: #202020;
+  color: white;
+  border: none;
+  padding: 20px;
+  line-height: 1;
+  border-radius: 4px;
+}
+
+.search-button:hover {
+  cursor: pointer;
+  background-color: #000;
+}
+
+main {
+  padding: 88px 0;
+}
+
+.main-text {
+  font-size: 56px;
 }
