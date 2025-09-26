@@ -21,7 +21,7 @@ body {
   color: #202020;
   max-width: 656px;
   margin: 12px auto;
-  padding: 32px;
+  padding: 24px;
   border: 1px solid #202020;
   border-radius: 8px;
   box-shadow: 0 24px 40px rgba(46, 46, 46, 0.08);
@@ -49,6 +49,14 @@ body {
 .current-temperature-unit {
   position: relative;
   top: -38px;
+}
+
+.forecast-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  font-size: 16px;
 }
 
 footer {
@@ -92,4 +100,9 @@ main {
 
 .main-text {
   font-size: 56px;
+}
+
+.weather-forecast {
+  display: flex;
+  justify-content: space-between;
 }

@@ -1,3 +1,19 @@
+function displayForecast() {
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  let forecastHTML = "";
+
+  days.forEach(function (day) {
+    forecastHTML += `<div class="forecast-day">
+          <div class="forecast-day">${day}</div>
+          <div class="forecast-icon">🌤️</div>
+          <div class="forecast-temp"><strong>26º</strong> &nbsp; 12º</div>
+        </div>`;
+  });
+
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayNewInfo(response) {
   let temperatureElement = document.querySelector("#current-temperature-value");
   let cityElement = document.querySelector("#current-city");
@@ -72,9 +88,10 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 searchForm.addEventListener("submit", phraseUpdate);
 
-searchCity("Madrid");
-
 let currentDateELement = document.querySelector("#current-date");
 let currentDate = new Date();
 
 currentDateELement.innerHTML = formatDate(currentDate);
+
+searchCity("Madrid");
+displayForecast();
