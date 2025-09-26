@@ -1,4 +1,5 @@
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
   let forecastHTML = "";
 
@@ -34,7 +35,7 @@ function displayNewInfo(response) {
     description.charAt(0).toUpperCase() + description.slice(1);
   descriptionElement.innerHTML = capitalizedDescription;
 
-  console.log(response.data);
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -62,6 +63,12 @@ function formatDate(date) {
 
   let formattedDay = days[day];
   return `${formattedDay} ${hours}:${minutes}`;
+}
+
+function getForecast(city) {
+  let apiKey = "of26b55307144beab6f326a4tefcaa5e";
+  let apiURl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiURl).then(displayForecast);
 }
 
 function phraseUpdate(event) {
@@ -94,4 +101,3 @@ let currentDate = new Date();
 currentDateELement.innerHTML = formatDate(currentDate);
 
 searchCity("Madrid");
-displayForecast();
