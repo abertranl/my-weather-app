@@ -1,18 +1,37 @@
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[date.getDay()];
+}
+
 function displayForecast(response) {
-  console.log(response.data);
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
   let forecastHTML = "";
 
-  days.forEach(function (day) {
-    forecastHTML += `<div class="forecast-day">
-          <div class="forecast-day">${day}</div>
-          <div class="forecast-icon">🌤️</div>
-          <div class="forecast-temp"><strong>26º</strong> &nbsp; 12º</div>
+  response.data.daily.forEach(function (day, index) {
+    if (index > 0 && index < 6) {
+      forecastHTML += `<div class="forecast-day">
+          <div class="text-small">${formatDay(day.time)}</div>
+          <img class="forecast-icon"src="${day.condition.icon_url}" />
+          <div class="forecast-temp"><strong>${Math.round(
+            day.temperature.maximum
+          )}º</strong> &nbsp; ${Math.round(day.temperature.minimum)}º</div>
         </div>`;
+    }
   });
 
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHTML;
+}
+
+function displayCurrentTemp(response) {
+  let firstDay = response.data.daily[0];
+
+  document.querySelector("#current-max").innerHTML = Math.round(
+    firstDay.temperature.maximum
+  );
+  document.querySelector("#current-min").innerHTML = Math.round(
+    firstDay.temperature.minimum
+  );
 }
 
 function displayNewInfo(response) {
@@ -35,7 +54,18 @@ function displayNewInfo(response) {
     description.charAt(0).toUpperCase() + description.slice(1);
   descriptionElement.innerHTML = capitalizedDescription;
 
+  updateColorsByTemperature(response.data.temperature.current);
   getForecast(response.data.city);
+}
+function updateColorsByTemperature(temp) {
+  const body = document.body;
+  body.classList.remove("warm-theme", "cool-theme");
+
+  if (temp > 25) {
+    body.classList.add("warm-theme");
+  } else if (temp < 15) {
+    body.classList.add("cool-theme");
+  }
 }
 
 function formatDate(date) {
@@ -69,6 +99,7 @@ function getForecast(city) {
   let apiKey = "of26b55307144beab6f326a4tefcaa5e";
   let apiURl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
   axios(apiURl).then(displayForecast);
+  axios(apiURl).then(displayCurrentTemp);
 }
 
 function phraseUpdate(event) {

@@ -11,6 +11,7 @@ body {
   background: #eaeaea;
   font-family: "Roboto", sans-serif;
   margin: 16px;
+  color: #202020;
 }
 
 .bold {
@@ -19,7 +20,6 @@ body {
 
 .card {
   background: #f1f1f1;
-  color: #202020;
   max-width: 656px;
   margin: 12px auto;
   padding: 24px;
@@ -29,20 +29,16 @@ body {
 }
 
 .current-details {
-  color: #202020;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   display: flex;
-  gap: 48px;
-  align-items: center;
+  justify-content: space-between;
 }
 
 .current-temperature-icon {
-  max-height: 56px;
-  max-width: 56px;
-  height: auto;
-  width: auto;
+  height: 64px;
+  width: 64px;
   display: inline-block;
   transform: translateY(4px);
 }
@@ -56,20 +52,25 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 4px;
   font-size: 16px;
+}
+
+.forecast-icon {
+  width: 48px;
+  height: 48px;
 }
 
 footer {
   text-align: center;
   padding-top: 32px;
-  color: #202020;
 }
 
 #search-form {
   display: flex;
   gap: 8px;
 }
+
 .search-input {
   background-color: #fff;
   border: none;
@@ -83,7 +84,7 @@ footer {
 .search-button {
   font-size: 16px;
   background-color: #202020;
-  color: white;
+  color: #eaeaea;
   border: none;
   padding: 20px;
   line-height: 1;
@@ -95,12 +96,56 @@ footer {
   background-color: #000;
 }
 
+.warm-theme a {
+  color: #e05d63;
+}
+.warm-theme,
+.warm-theme * {
+  color: #e05d63 !important;
+}
+.warm-theme .card {
+  background: #f0dccd;
+  border-color: #e05d63;
+}
+.warm-theme .search-button {
+  background-color: #e05d63;
+  color: #eaeaea !important;
+}
+.warm-theme .search-button:hover {
+  background-color: #b8484f;
+  color: #eaeaea !important;
+}
+
+.cool-theme a {
+  color: #5667c1;
+}
+.cool-theme,
+.cool-theme * {
+  color: #5667c1 !important;
+}
+.cool-theme .card {
+  background: #bfd5e2;
+  border-color: #5667c1;
+}
+.cool-theme .search-button {
+  background-color: #5667c1;
+  color: #eaeaea !important;
+}
+.cool-theme .search-button:hover {
+  background-color: #4458a0;
+  color: #eaeaea !important;
+}
+
 main {
   padding: 88px 0;
 }
 
-.main-text {
+.text {
   font-size: 56px;
+}
+
+.text-small {
+  font-size: 14px;
 }
 
 .weather-forecast {
